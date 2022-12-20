@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block content %}
+<br>
+<h2> Apartmani </h2>
+<br>
+{% for apartman in apartman_list %}
+    <div class="apartman">
+        <h4>{{ apartman.ime }} 
+            {% if apartman.broj_zvezdica == 1 %}
+            ⋆
+            {% endif %}
+            {% if apartman.broj_zvezdica == 2 %}
+            ⋆⋆
+            {% endif %}
+            {% if apartman.broj_zvezdica == 3 %}
+            ⋆⋆⋆
+            {% endif %}
+            {% if apartman.broj_zvezdica == 4 %}
+            ⋆⋆⋆⋆
+            {% endif %}
+            {% if apartman.broj_zvezdica == 5 %}
+            ⋆⋆⋆⋆⋆
+            {% endif %}
+        </h4>
+        <p>Adresa: {{ apartman.adresa }}</p>
+        <p>Cijena noćenja: {{ apartman.cijena_noci }}</p>
+        <p>Maksimalan broj gostiju: {{ apartman.max_gost}}</p>
+        <p>Minimalan broj noćenja: {{ apartman.min_br_nocenja}}</p>
+    </div>
+{% endfor %}
+{% endblock %}

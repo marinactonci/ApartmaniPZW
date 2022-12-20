@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block content %}
+<br>
+<h2> Rezervacija </h2>
+<br>
+{% for rezervacija in rezervacija_list %}
+    <div class="rezervacija">
+        <h4>{{ rezervacija.gost }} je rezervirao apartman: {{ rezervacija.apartman }}</h4>
+        <p>Od {{ rezervacija.datum_od }} do {{ rezervacija.datum_do }}</p>
+        <p>Broj noćenja: {{ rezervacija.broj_nocenja }}</p>
+        <p>Ukupna cijena: {{ rezervacija.cijena_ukupno}}</p>
+    </div>
+{% endfor %}
+{% endblock %}

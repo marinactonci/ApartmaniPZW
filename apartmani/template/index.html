@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <h1>Apartmani Fifi</h1>
+    <div id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href="/main">Naslovna</a></li>
+            <li><a href="/main/apartmani">Apartmani</a></li>
+            <li><a href="/main/gosti">Gosti</a></li>
+            <li><a href="/main/rezervacije">Rezervacije</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

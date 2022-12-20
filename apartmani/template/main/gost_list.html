@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block content %}
+<br>
+<h2> Gosti </h2>
+<br>
+{% for gost in gost_list %}
+    <div class="gost">
+        <h4>{{ gost.ime }} {{ gost.prezime }}</h4>
+        <p>Država: {{ gost.drzava }}</p>
+        <p>Grad: {{ gost.grad }}</p>
+        <p>OIB: {{ gost.oib }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
