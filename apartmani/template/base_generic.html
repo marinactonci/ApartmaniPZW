@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fifijev Cvijet</title>
+    {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF_BeQSZVjrjXqG2ZpTqyNVFvL2nEu3CE&callback=initMap" async defer></script>
+<body>
+    <nav class="navbar">
+        <a href="" class="nav-logo">Fifijev Cvijet</a>
+        {% block sidebar %}
+        <div class="nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/apartmani" class="nav-link">Apartments</a>
+            <a href="" class="nav-link">Location</a>
+            <a href="" class="nav-link">Gallery</a>
+            <a href="" class="nav-link">About</a>
+            <a href="" class="nav-link">Contact</a>
+            <button class="no-button"><i class="fa-solid fa-circle-user"></i></button>
+        </div>
+        {% endblock %}
+    </nav>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-copyright">
+                Copyright © 2017-2023 »Fifijev Cvijet« d.o.o.
+            </div>
+            <div class="footer-contact" style="margin: 1em 0;">
+                <a href="mailto:fifijevcvijet@mail.com">fifijevcvijet@mail.com</span>
+                <span>+38599 123 4567</span>
+            </div>
+            <div class="social-container">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

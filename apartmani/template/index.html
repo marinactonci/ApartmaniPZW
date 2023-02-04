@@ -1,25 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-</head>
-
-<body>
-    <h1>Apartmani Fifi</h1>
-    <div id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li><a href="/main">Naslovna</a></li>
-            <li><a href="/main/apartmani">Apartmani</a></li>
-            <li><a href="/main/gosti">Gosti</a></li>
-            <li><a href="/main/rezervacije">Rezervacije</a></li>
-        </ul>
-        {% endblock %}
+{% extends "base_generic.html" %}
+{% block content %}
+<section class="hero">
+    <div class="hero-container">
+        <div class="social-container">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <h1>YOUR PERFECT VACATION HOME AWAITS</h1>
+        <p>From cozy apartments to spacious homes, we have the perfect vacation rental for you. 
+            With properties in the world's most popular destinations, we'll help you find the 
+            perfect space for your next adventure. Book now and experience the ultimate in 
+            comfort and convenience.</p>
+        <button class="button-secondary">Contact us</button>
+        <button class="button-primary">View apartments</button>
     </div>
+</section>
+<section class="extra-info">
+    <p>Take a look at our available apartments, each one carefully selected to provide you with a comfortable 
+        and enjoyable stay. And, with our expert customer service, you can be sure that your vacation will be unforgettable.</p>
+    <div class="extra-info-img-container">
 
-    <div class="content">
-        {% block content %}
-        {% endblock %}
     </div>
-</body>
-</html>
+    <p>Ready to start planning your next adventure? Browse our available apartments now, or contact us to learn more.</p>
+    <div id="map" style="height: 400px; width: 100%;"></div>
+</section>
+
+<script>
+     var addresses = [
+    { street: "1600 Amphitheatre Parkway", city: "Mountain View", country: "USA", title: "Google HQ" },
+    { street: "345 Park Ave", city: "New York", country: "USA", title: "JP Morgan Chase HQ" },
+    { street: "25 Bank St", city: "London", country: "UK", title: "Goldman Sachs HQ" }
+  ];
+
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 2,
+      center: { lat: 37.7749, lng: -122.4194 }
+    });
+
+    var geocoder = new google.maps.Geocoder();
+
+    for (var i = 0; i < addresses.length; i++) {
+      var address = addresses[i];
+      geocoder.geocode({
+        address: address.street + ", " + address.city + ", " + address.country
+      }, function (results, status) {
+        if (status === "OK") {
+          var marker = new google.maps.Marker({
+            position: results[0].geometry.location,
+            map: map,
+            title: address.title
+          });
+        } else {
+          console.error("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
+  }
+  </script>
+{% endblock %}

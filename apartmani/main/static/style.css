@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    overflow-x: hidden;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #8e8164;
+}
+
+.button-primary {
+    background-color: #8e8164;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 1rem 2rem;
+    font-size: 1.25em;
+    width: 70%;
+}
+
+.button-secondary {
+    background-color: transparent;
+    border: 2px solid #8e8164;
+    color: #8e8164;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1em;
+    width: 35%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: linear-gradient(45deg, #0f1719, #273232);
+    height: 10vh;
+}
+
+.navbar a {
+    font-size: 1.25em;
+}
+
+.nav-logo {
+    font-size: 1.75em !important;
+    font-weight: bold;
+}
+
+.logo-img {
+    transform: scale(0.00001);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+nav i {
+    display: flex;
+    align-items: center;
+    color: #8e8164;
+    font-size: 2em;
+}
+
+.no-button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero  {
+    height: 90vh;
+    background-image: url('./img/hero-image.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    width: 20%;
+    margin-left: 5%;
+}
+
+.social-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2em;
+}
+
+.social-container a i {
+    color: #8e8164;
+    font-size: 1em;
+}
+
+.hero-container h1 {
+    font-size: 2.5em;
+    line-height: 38px;
+}
+
+.hero-container p {
+    font-size: 1.2em;
+    line-height: 38px;
+    color: #8e8164;
+}
+
+.extra-info {
+    color: #8e8164;
+    padding: 5em 5%;
+    font-size: 1.2em;
+}
+
+.extra-info-img-container {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+}
+
+
+
+footer {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #0f1719, #273232);
+    color: #8e8164;
+    font-size: 1.25;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 10px;
+}
