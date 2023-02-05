@@ -1,22 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body, html {
     overflow-x: hidden;
     font-family: 'Roboto', 'sans-serif';
-}
-
-ul {
-    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
 }
 
 a {
     text-decoration: none;
     color: #8e8164;
+}
+
+.align-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #8e8164;
+    border-radius: 8px;
+    padding: 0 0.6em;
+    height: 100%;
+}
+
+.align-center p {
+    text-align: center;
+}
+
+.notification {
+    position: fixed; 
+    left: 50%; 
+    top: 30px;
+    width: 280px;
+    height: 140px;
+    background-color: #cce5ff;
+    border-radius: 8px;
+}
+
+.notification div {
+    color: #1a4085;
+}
+
+.dismiss-notification {
+    background-color: transparent;
+    border: none;
+}
+
+.dismiss-notification:hover {
+    cursor: pointer;
+}
+
+.dismiss-notification i {
+    color: #1a4085;
 }
 
 .button-primary {
@@ -26,7 +62,7 @@ a {
     border-radius: 4px;
     padding: 1rem 2rem;
     font-size: 1.25em;
-    width: 70%;
+    width: auto;
 }
 
 .button-secondary {
@@ -36,7 +72,23 @@ a {
     border-radius: 4px;
     padding: 0.5rem 1rem;
     font-size: 1em;
-    width: 35%;
+    width: auto;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.img2 {
+    width: 50%;
+    height: auto;
+}
+
+.m0p0 {
+    margin: 0;
+    padding: 0
 }
 
 .navbar {
@@ -44,7 +96,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    background: linear-gradient(45deg, #0f1719, #273232);
+    background: linear-gradient(45deg, #273232, #0f1719);
     height: 10vh;
 }
 
@@ -64,15 +116,67 @@ a {
 .nav {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    height: 100%;
 }
 
-nav i {
+.nav-link {
+    height: 100%;
+    padding: 0 1.2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link:hover {
+    background: linear-gradient(0deg, #537553, transparent);
+}
+
+.dropdown-toggle i {
     display: flex;
     align-items: center;
     color: #8e8164;
-    font-size: 2em;
+    font-size: 2.4em;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-toggle {
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #8e8164;
+    width: 100px;
+    padding: 10px;
+    display: none;
+    z-index: 1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+  }
+
+  .dropdown-item:not(:last-child) {
+    border-bottom: 1px solid white;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    cursor: pointer;
+  }
 
 .no-button {
     border: none;
@@ -80,6 +184,17 @@ nav i {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.two-p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.two-p p {
+    text-align: center;
 }
 
 .hero  {
@@ -123,29 +238,90 @@ nav i {
     font-size: 1.2em;
     line-height: 38px;
     color: #8e8164;
+    margin: 0;
 }
 
 .extra-info {
     color: #8e8164;
-    padding: 5em 5%;
+    padding: 7em 5% 0 5%;
     font-size: 1.2em;
 }
 
-.extra-info-img-container {
-    display: grid;
-    grid-template-columns: repeat(3, 200px);
+.extra-info p {
+    display: flex;
+    align-items: center;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 20px;
+}
 
+.grid-item {
+    height: 100%;
+}
+
+.apartments-hero  {
+    height: 90vh;
+    background: linear-gradient(180deg, #f8fafc 80%, #f2f4f6 100%);
+    display: flex;
+    justify-content: space-between;
+    color: #8e8164;
+    font-size: 1.2em;
+}
+
+.apartments-hero div {
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.amenities-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 0 2em 0 !important;
+}
+
+.amenities {
+    margin: 0 !important;
+    display: grid;
+    grid-template-columns: 50px 200px;
+}
+
+.amenities i {
+    display: flex;
+    justify-content: center;
+}
+
+.apartment-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    padding: 5em 5%;
+}
+
+.apartment-item {
+    background-color: #0f1719;
+    color: #8e8164;
+    border-radius: 8px;
+    display: flex;
+    overflow: hidden;
+}
+
+.item-info {
+    padding: 2em;
+}
 
 footer {
     height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(45deg, #0f1719, #273232);
+    background: linear-gradient(45deg, #273232, #0f1719);
     color: #8e8164;
-    font-size: 1.25;
+    font-size: 1.25em;
 }
 
 .footer-container {

@@ -1,62 +1,73 @@
 {% extends "base_generic.html" %}
 {% block content %}
-<section class="hero">
+<div>
+  <section class="hero">
     <div class="hero-container">
         <div class="social-container">
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-youtube"></i></a>
         </div>
-        <h1>YOUR PERFECT VACATION HOME AWAITS</h1>
+        <h1 style="margin: 0;">YOUR PERFECT VACATION HOME AWAITS</h1>
         <p>From cozy apartments to spacious homes, we have the perfect vacation rental for you. 
             With properties in the world's most popular destinations, we'll help you find the 
             perfect space for your next adventure. Book now and experience the ultimate in 
             comfort and convenience.</p>
-        <button class="button-secondary">Contact us</button>
-        <button class="button-primary">View apartments</button>
+        <div><a href="#" class="button-secondary">Contact us</a></div>
+        <div style="margin-top: 1em;"><a href="#" class="button-primary">View apartments</a></div>
     </div>
 </section>
 <section class="extra-info">
-    <p>Take a look at our available apartments, each one carefully selected to provide you with a comfortable 
-        and enjoyable stay. And, with our expert customer service, you can be sure that your vacation will be unforgettable.</p>
-    <div class="extra-info-img-container">
-
+  <h1 style="margin-bottom: 2em;">WHO WE ARE - FIFI'S FLOWER</h1>
+  <div class="grid-container">
+    <div class="grid-item">
+      <div class="align-center">
+        <p>At Fifi's Flower, we go above and beyond to ensure that our guests have the best vacation experience possible. Our services include 
+          24/7 customer support, flexible booking, and local recommendations to help you make the most of your stay. Whether you need help finding 
+          the perfect rental, need advice on things to do, or have any other questions, we're here to help.</p>
+      </div>
     </div>
-    <p>Ready to start planning your next adventure? Browse our available apartments now, or contact us to learn more.</p>
-    <div id="map" style="height: 400px; width: 100%;"></div>
+    <div class="grid-item">
+      {% load static %}
+      <img src="{% static './img/bathroom.png' %}" class="img">
+    </div>
+    <div class="grid-item">
+      <div class="align-center">
+        Services:
+        <ul style="list-style-type: circle;">
+          <li>24/7 Customer Support: We're here to help you, day or night. Whether you have a question about your reservation or need assistance with something else, our team is available to assist you.</li>
+          <li>Flexible Booking: Need to change your plans? No problem. Our flexible booking options allow you to adjust your reservations with ease.</li>
+          <li>Local Recommendations: Our local experts know the destinations we serve inside and out, and they're always happy to share their favorite spots and activities.</li>
+          <li>Quality Accommodations: Our properties are carefully selected to meet high standards of comfort, cleanliness, and style. You'll feel right at home, no matter which property you choose.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid-item">
+      {% load static %}
+      <img src="{% static './img/living-room.png' %}" class="img">
+    </div>
+    <div class="grid-item">
+      <div class="align-center">
+        <p>Our team is made up of travel experts, local destination specialists, and customer support representatives, 
+          all dedicated to helping you have a great vacation. Whether you have a question about a property, need help 
+          with booking, or want to know more about the local area, our team is here to assist you.</p>
+      </div>
+    </div>
+    <div class="grid-item">
+      {% load static %}
+      <img src="{% static './img/kitchen.png' %}" class="img">
+    </div>
+    <div class="grid-item" style="grid-column: span 2;">
+      {% load static %}
+      <img src="{% static './img/bedroom-transformed.jpeg' %}" class="img" style="height: 75% !important"></div>
+    <div class="grid-item" style="height: 75%;">
+      <div class="align-center">
+        <p>Take a look at our available apartments, each one carefully selected to provide you with a comfortable 
+          and enjoyable stay. And, with our expert customer service, you can be sure that your vacation will be unforgettable.
+          Ready to start planning your next adventure? Browse our available apartments now, or contact us to learn more.</p>
+      </div>
+    </div>
+  </div>
 </section>
-
-<script>
-     var addresses = [
-    { street: "1600 Amphitheatre Parkway", city: "Mountain View", country: "USA", title: "Google HQ" },
-    { street: "345 Park Ave", city: "New York", country: "USA", title: "JP Morgan Chase HQ" },
-    { street: "25 Bank St", city: "London", country: "UK", title: "Goldman Sachs HQ" }
-  ];
-
-  function initMap() {
-    var map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 2,
-      center: { lat: 37.7749, lng: -122.4194 }
-    });
-
-    var geocoder = new google.maps.Geocoder();
-
-    for (var i = 0; i < addresses.length; i++) {
-      var address = addresses[i];
-      geocoder.geocode({
-        address: address.street + ", " + address.city + ", " + address.country
-      }, function (results, status) {
-        if (status === "OK") {
-          var marker = new google.maps.Marker({
-            position: results[0].geometry.location,
-            map: map,
-            title: address.title
-          });
-        } else {
-          console.error("Geocode was not successful for the following reason: " + status);
-        }
-      });
-    }
-  }
-  </script>
+</div>
 {% endblock %}

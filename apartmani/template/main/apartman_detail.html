@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% block content %}
+<section class="apartment-detail">
+    <div style="height: 90vh; width: 100%; display: flex;">
+        {% load static %}
+        <img src="{% static './img/detail-transformed.jpeg' %}" style="width: auto; height: 100%;">
+        <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; color: #8e8164; text-align: center; margin: 0 auto; font-size: 1.8em;">
+                <h1 style="margin: 0;">{{apartman.ime}}</h1>
+                {% if apartman.broj_zvezdica == 1 %}
+                <div style="display: flex; justify-content: center; gap: 3px;">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                {% endif %}
+                {% if apartman.broj_zvezdica == 2 %}
+                <div style="display: flex; justify-content: center; gap: 3px;">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                {% endif %}
+                {% if apartman.broj_zvezdica == 3 %}
+                <div style="display: flex; justify-content: center; gap: 3px;">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                {% endif %}
+                {% if apartman.broj_zvezdica == 4 %}
+                <div style="display: flex; justify-content: center; gap: 3px;">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                {% endif %}
+                {% if apartman.broj_zvezdica == 5 %}
+                <div style="display: flex; justify-content: center; gap: 3px;">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                {% endif %}
+                <span>{{ apartman.adresa }}</span>
+                <span>{{ apartman.cijena_noci }}€ per night</span>
+                <span>{{ apartman.max_gosti }} guests max</span>
+                <span>{{ apartman.max_br_nocenja }} nights allowed max</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    forma za unos podataka
+</section>
+{% endblock %}

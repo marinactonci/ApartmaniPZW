@@ -1,31 +1,97 @@
 {% extends "index.html" %}
 {% block content %}
-<br>
-<h2> Apartmani </h2>
-<br>
-{% for apartman in apartman_list %}
-    <div class="apartman">
-        <h4>{{ apartman.ime }} 
+<section class="apartments-hero">
+    <div>
+        <h1>FIND YOUR PERFECT VACATION HOME</h1>
+        <h3>OUR APARTMENTS COLLECTION</h3>
+        <p>
+            Our vacation rental apartments offer a comfortable and convenient alternative 
+            to traditional hotel rooms. With fully equipped kitchens, spacious living areas, 
+            and all the amenities you need for a comfortable stay, you'll feel right at home.
+        </p>
+        <p>
+            Take a look at our available apartments and find the perfect one for your next vacation. 
+            Whether you're traveling solo, with a partner, or with the whole family, we've got the perfect space for you.
+        </p>
+        <p>
+            Each of our apartments is located in a prime location, with easy access to local attractions and transportation options. 
+            So, you can make the most of your time. Each of our apartments provide you with the following:
+        </p>
+        <div class="amenities-container">
+            <div class="amenities">
+                <i class="fa-solid fa-snowflake"></i>
+                <span>Air Condition</span>
+            </div>
+            <div class="amenities">
+                <i class="fa-solid fa-wifi"></i>
+                <span>Wifi</span>
+            </div>
+            <div class="amenities">
+                <i class="fa-solid fa-square-parking"></i>
+                <span>Parking</span>
+            </div>
+            <div class="amenities">
+                <i class="fa-solid fa-broom"></i>
+                <span>Cleaning</span>
+            </div>
+            <div class="amenities">
+                <i class="fa-solid fa-plus"></i>
+                <span>Extras</span>
+            </div>
+        </div>
+        <a href="#apartment-list" class="button-primary" style="font-size: 1em;">Browse</a>
+    </div>
+    {% load static %}
+    <img src="{% static './img/apartments-bg.jpeg' %}" style="height: 100%;">
+</section>
+<section class="apartment-list" id="apartment-list">
+    {% for apartman in apartman_list %}
+    <div class="apartment-item">
+        {% load static %}
+        <img src="{% static './img/laungeroom.png' %}" class="img2">
+        <div class="item-info">
+            <h4 class="m0p0" style="margin-bottom: 5px">Apartment {{ apartman.ime }}</h4>
             {% if apartman.broj_zvezdica == 1 %}
-            ⋆
+            <div style="display: flex; gap: 3px;">
+                <i class="fa-solid fa-star"></i>
+            </div>
             {% endif %}
             {% if apartman.broj_zvezdica == 2 %}
-            ⋆⋆
+            <div style="display: flex; gap: 3px;">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
             {% endif %}
             {% if apartman.broj_zvezdica == 3 %}
-            ⋆⋆⋆
+            <div style="display: flex; gap: 3px;">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
             {% endif %}
             {% if apartman.broj_zvezdica == 4 %}
-            ⋆⋆⋆⋆
+            <div style="display: flex; gap: 3px;">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
             {% endif %}
             {% if apartman.broj_zvezdica == 5 %}
-            ⋆⋆⋆⋆⋆
+            <div style="display: flex; gap: 3px;">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
             {% endif %}
-        </h4>
-        <p>Adresa: {{ apartman.adresa }}</p>
-        <p>Cijena noćenja: {{ apartman.cijena_noci }}</p>
-        <p>Maksimalan broj gostiju: {{ apartman.max_gosti}}</p>
-        <p>Minimalan broj noćenja: {{ apartman.min_br_nocenja}}</p>
+            <p>Address: {{ apartman.adresa }}</p>
+            <p>Price: {{ apartman.cijena_noci }}€ per night</p>
+            <a href="{% url 'main:apartman_detail' apartman.id %}" class="button-primary" style="font-size: 1em; padding: 0.5em 1.5em;">View</a>
+        </div>
     </div>
-{% endfor %}
+    {% endfor %}
+</section>
+
 {% endblock %}

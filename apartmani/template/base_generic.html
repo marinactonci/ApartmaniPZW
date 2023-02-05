@@ -2,23 +2,57 @@
 <html lang="en">
 
 <head>
-    <title>Fifijev Cvijet</title>
+    <title>Fifi's Flower</title>
     {% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF_BeQSZVjrjXqG2ZpTqyNVFvL2nEu3CE&callback=initMap" async defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <body>
+    {% if messages %}
+{% for message in messages %}
+{% if forloop.first %}
+<div class="notification" id="notification">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px; border-bottom: 1px solid #1a4085;">
+        <span>Message</span>
+        <button class="dismiss-notification" id="x" type="button"><i class="fa-solid fa-x"></i></button>
+    </div>
+    <div style="display: flex; align-items: center; padding-left: 5px; height: 50%;">{{ message }}</div>
+</div>
+<script>
+    const notification = document.getElementById('notification');
+    const x = document.getElementById('x');
+    notification.style.display = "block";
+    x.addEventListener('click', () => {
+        notification.style.display = "none";
+    });
+</script>
+{% endif %}
+{% endfor %}
+{% endif %}
     <nav class="navbar">
-        <a href="" class="nav-logo">Fifijev Cvijet</a>
+        <a href="/" class="nav-logo">Fifi's Flower</a>
         {% block sidebar %}
         <div class="nav">
             <a href="/" class="nav-link">Home</a>
-            <a href="/apartmani" class="nav-link">Apartments</a>
-            <a href="" class="nav-link">Location</a>
-            <a href="" class="nav-link">Gallery</a>
+            <a href="/apartments" class="nav-link">Apartments</a>
             <a href="" class="nav-link">About</a>
             <a href="" class="nav-link">Contact</a>
-            <button class="no-button"><i class="fa-solid fa-circle-user"></i></button>
+            
+            <div class="dropdown">
+                <button class="dropdown-toggle">
+                  <i class="fa-solid fa-circle-user"></i>
+                </button>
+                <div class="dropdown-menu">
+                  {% if user.is_authenticated %}
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="/logout">Sign Out</a>
+                  {% else %}
+                  <a class="dropdown-item" href="/login">Login</a>
+                  <a class="dropdown-item" href="/register">Register</a>
+                  {% endif %}
+                </div>
+              </div>
         </div>
         {% endblock %}
     </nav>
@@ -31,11 +65,11 @@
     <footer>
         <div class="footer-container">
             <div class="footer-copyright">
-                Copyright © 2017-2023 »Fifijev Cvijet« d.o.o.
+                Copyright © 2017-2023 »Fifi's Flower« d.o.o.
             </div>
             <div class="footer-contact" style="margin: 1em 0;">
                 <a href="mailto:fifijevcvijet@mail.com">fifijevcvijet@mail.com</span>
-                <span>+38599 123 4567</span>
+                <a href="tel:+385991234567">+38599 123 4567</span>
             </div>
             <div class="social-container">
                 <a href="#"><i class="fa-brands fa-facebook"></i></a>
