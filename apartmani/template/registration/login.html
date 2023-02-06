@@ -1,9 +1,22 @@
-<div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <title>Fifi's Flower | Login</title>
+</head>
+<body class="login-body">
+  <div class="login">
     <h1>Login</h1>
-    <form method="POST">
+    <form method="POST" style="display: flex; flex-direction: column; gap: 10px;">
       {% csrf_token %}
       {{ login_form }}
-      <button type="submit">Login</button>
+      <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button type="submit" class="button-primary" style="font-size:medium; padding: 5px; width: 100%;">Login</button>
+        <a href="/" class="button-secondary" style="font-size:medium; padding: 5px 0; width: 100%; display: flex; justify-content: center;">Cancel</a>
+      </div>
     </form>
-    <p>Don't have an account? <a href="/register">Create an account</a>.</p>
+    <p>Don't have an account? <a href="/register">Register</a></p>
   </div>
+</body>
+</html>

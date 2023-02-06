@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+<section class="contact">
+    <div style="margin: auto;">
+        <div style="width: 100%;">
+            <form method="post"  class="contact-form">
+                <h1>Contact</h1>
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" value="Submit" class="button-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    {% load static %}
+    <img src="{% static './img/exterior-transformed.jpeg' %}" style="width: 40%; height: auto;">
+</section>
+{% endblock %}

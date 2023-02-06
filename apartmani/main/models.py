@@ -32,4 +32,4 @@ class Rezervacija(models.Model):
     broj_nocenja = models.IntegerField()
     cijena_ukupno = models.IntegerField()
     gost = models.OneToOneField(Gost, on_delete=models.CASCADE)
-    apartman = models.OneToOneField(Apartman, on_delete=models.CASCADE)
+    apartman = models.ForeignKey(Apartman, on_delete=models.CASCADE)

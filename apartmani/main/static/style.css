@@ -29,13 +29,13 @@ a {
 }
 
 .notification {
-    position: fixed; 
-    left: 50%; 
-    top: 30px;
-    width: 280px;
-    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
     background-color: #cce5ff;
-    border-radius: 8px;
+    padding-left: 10px;
 }
 
 .notification div {
@@ -45,6 +45,7 @@ a {
 .dismiss-notification {
     background-color: transparent;
     border: none;
+    margin-right: 30px;
 }
 
 .dismiss-notification:hover {
@@ -109,13 +110,10 @@ a {
     font-weight: bold;
 }
 
-.logo-img {
-    transform: scale(0.00001);
-}
-
 .nav {
     display: flex;
     align-items: center;
+    gap: 3.6em;
     height: 100%;
 }
 
@@ -141,13 +139,15 @@ a {
 
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
   }
 
   .dropdown-toggle {
     background: transparent;
     border: none;
     outline: none;
+    padding-left: 1.2em !important;
   }
 
   .dropdown-menu {
@@ -314,6 +314,50 @@ a {
     padding: 2em;
 }
 
+.contact {
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form h1 {
+    font-size: 2.8em;
+    margin: 0;
+    color: #8e8164;
+}
+
+.contact-form input, .contact-form textarea {
+    border: 2px solid #8e8164;
+    color: #8e8164;
+    font-size: 1.2em;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+textarea {
+    resize: none;
+}
+
+.reservation {
+    padding: 5%;
+}
+
+.reservation-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 footer {
     height: 20vh;
     display: flex;
@@ -334,4 +378,35 @@ footer {
 .footer-contact {
     display: flex;
     gap: 10px;
+}
+
+
+
+.login-body {
+    background-image: url('./img/exterior-transformed.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    background-color: #0f1719;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1% 5%;
+    color: white;
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
+}
+
+.login h1 {
+    border-bottom: 2px solid #8e8164;
+    padding-bottom: 10px;
+    width: 40%;
 }

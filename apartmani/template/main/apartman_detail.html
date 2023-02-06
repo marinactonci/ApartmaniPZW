@@ -4,6 +4,7 @@
     <div style="height: 90vh; width: 100%; display: flex;">
         {% load static %}
         <img src="{% static './img/detail-transformed.jpeg' %}" style="width: auto; height: 100%;">
+        {% load static %}
         <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
             <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; color: #8e8164; text-align: center; margin: 0 auto; font-size: 1.8em;">
                 <h1 style="margin: 0;">{{apartman.ime}}</h1>
@@ -44,13 +45,21 @@
                 {% endif %}
                 <span>{{ apartman.adresa }}</span>
                 <span>{{ apartman.cijena_noci }}€ per night</span>
+                <span>{{ apartman.min_br_nocenja }} nights minimal</span>
                 <span>{{ apartman.max_gosti }} guests max</span>
-                <span>{{ apartman.max_br_nocenja }} nights allowed max</span>
             </div>
         </div>
     </div>
 </section>
-<section>
-    forma za unos podataka
+<section class="reservation">
+    <h1>Make a reservation for this apartment!</h1>
+    <div class="reservation-container">
+        <form method="post" class="contact-form" style="width: 75%;">
+            {% csrf_token %}
+            {{ gost_form }}
+            {{ rezervacija_form }}
+            <button type="submit" value="Submit" class="button-primary">Submit</button>
+        </form>
+    </div>
 </section>
 {% endblock %}

@@ -1,9 +1,22 @@
-<div>
-	<h1>Register</h1>
-	<form method="POST">
-		{% csrf_token %}
-		{{ register_form}}                    
-		<button type="submit">Register</button>
-	</form>
-	<p>If you already have an account, <a href="/login">login</a> instead.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <title>Fifi's Flower | Login</title>
+</head>
+<body class="login-body">
+  <div class="login">
+    <h1>Register</h1>
+    <form method="POST" style="display: flex; flex-direction: column; gap: 10px;">
+      {% csrf_token %}
+      {{ register_form }}
+      <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <button type="submit" class="button-primary" style="font-size:medium; padding: 5px; width: 100%;">Register</button>
+        <a href="/" class="button-secondary" style="font-size:medium; padding: 5px 0; width: 100%; display: flex; justify-content: center;">Cancel</a>
+      </div>
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+</body>
+</html>
