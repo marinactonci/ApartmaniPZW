@@ -1,4 +1,4 @@
 # Apartmani
-Aplikacija za pregled i rezervaciju apartmana. Rezervacija se vrši pomoću interaktivnog kalendara i forme. Gost odabire datum od, datum do, broj gostiju te mu se, po završetku, prikažu slobodni apartmani pod danim uvjetima. Sastoji se od tri klase: Apartman, Gost i Rezervacija. Rezervacija sadrži OneToOne relacije na Apartman i Gost.
+Aplikacija za pregled i rezervaciju apartmana. Rezervacija se vrši pomoću interaktivnog kalendara i forme. Gost upisuje svoje podatke te odabire datum od i datum do te mu se, po završetku, prikaže obavijest o uspješnoj (ili neuspješnoj) rezervaciji apartmana. Sastoji se od tri klase: Apartman, Gost i Rezervacija. Rezervacija sadrži OneToOne relaciju na Gost i ForeignKey na Apartman.
 
 Izradili David Domijan i Tonči Marinac
