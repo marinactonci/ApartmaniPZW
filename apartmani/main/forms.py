@@ -33,12 +33,23 @@ class GostForm(forms.ModelForm):
     class Meta:
         model = Gost
         fields = ['ime', 'prezime', 'drzava', 'grad', 'oib']
+        labels = {
+            'ime': 'First Name',
+            'prezime': 'Last Name',
+            'drzava': 'Country',
+            'grad': 'City',
+            'oib': 'OIB',
+        }
 
 
 class RezervacijaForm(forms.ModelForm):
     class Meta:
         model = Rezervacija
         fields = ['datum_od', 'datum_do']
+        labels = {
+            'datum_od': 'Date from',
+            'datum_do': 'Date to'
+        }
         widgets = {
             'datum_od': forms.DateInput(attrs={'type': 'date'}),
             'datum_do': forms.DateInput(attrs={'type': 'date'}),
