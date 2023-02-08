@@ -410,3 +410,7 @@ footer {
     padding-bottom: 10px;
     width: 40%;
 }
+
+.profile {
+    height: 100vh;
+}

@@ -6,6 +6,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -109,3 +110,14 @@ def apartman_detail(request, pk):
         gost_form = GostForm()
         rezervacija_form = RezervacijaForm()
     return render(request, 'main/apartman_detail.html', {'apartman': apartman, 'gost_form': gost_form, 'rezervacija_form': rezervacija_form})
+
+
+@login_required
+def profile(request):
+    user = request.user
+    context = {
+        'username': user.username,
+        'email': user.email,
+        'date_joined': user.date_joined,
+    }
+    return render(request, 'registration/profile.html', context)

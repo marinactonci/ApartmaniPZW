@@ -3,20 +3,43 @@
 <head>
   {% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  {% load static %}
+  <link rel="shortcut icon" href="{% static './img/logoo.png' %}" type="image/x-icon">
   <title>Fifi's Flower | Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 </head>
-<body class="login-body">
-  <div class="login">
-    <h1>Login</h1>
-    <form method="POST" style="display: flex; flex-direction: column; gap: 10px;">
-      {% csrf_token %}
-      {{ login_form }}
-      <div style="display: flex; justify-content: space-between; gap: 10px;">
-        <button type="submit" class="button-primary" style="font-size:medium; padding: 5px; width: 100%;">Login</button>
-        <a href="/" class="button-secondary" style="font-size:medium; padding: 5px 0; width: 100%; display: flex; justify-content: center;">Cancel</a>
-      </div>
-    </form>
-    <p>Don't have an account? <a href="/register">Register</a></p>
+<body>
+  {% if messages %}
+        {% for message in messages %}
+            {% if forloop.first %}
+                <div class="notification" id="notification">
+                    <div style="display: flex; align-items: center; padding-left: 5px; height: 50%;">{{ message }}</div>
+                    <button class="dismiss-notification" id="x" type="button"><i class="fa-solid fa-x"></i></button>
+                </div>
+                <script>
+                    const notification = document.getElementById('notification');
+                    const x = document.getElementById('x');
+                    notification.style.display = "flex";
+                    x.addEventListener('click', () => {
+                        notification.style.display = "none";
+                    });
+                </script>
+            {% endif %}
+        {% endfor %}
+  {% endif %}
+  <div class="login-body">
+    <div class="login">
+      <h1>Login</h1>
+      <form method="POST" style="display: flex; flex-direction: column; gap: 10px;">
+        {% csrf_token %}
+        {{ login_form }}
+        <div style="display: flex; justify-content: space-between; gap: 10px;">
+          <button type="submit" class="button-primary" style="font-size:medium; padding: 5px; width: 100%;">Login</button>
+          <a href="/" class="button-secondary" style="font-size:medium; padding: 5px 0; width: 100%; display: flex; justify-content: center;">Cancel</a>
+        </div>
+      </form>
+      <p>Don't have an account? <a href="/register">Register</a></p>
+    </div>
   </div>
 </body>
 </html>
