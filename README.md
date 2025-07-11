@@ -1,47 +1,37 @@
 # 🏨 Apartmani - Apartment Reservation System
 
-A comprehensive web application for apartment browsing and reservation management. This Django-based system provides an intuitive interface for guests to discover, view, and book apartments with an interactive calendar system.
+A simple web application for apartment browsing and reservation management. This Django-based system provides a basic interface for guests to view apartments and make reservations using simple forms.
 
 ## 📋 About
 
-Apartmani is a full-featured apartment reservation platform that streamlines the booking process for both guests and property managers. The application features a modern web interface where guests can browse available apartments, view detailed information, and make reservations through an interactive calendar system.
+Apartmani is a basic apartment reservation system built with Django. Guests can browse available apartments, view apartment details, and make reservations by filling out a simple reservation form with their information and desired dates.
 
 ## ✨ Features
 
 ### 🏠 **Apartment Management**
+- Browse apartment listings
+- View apartment details and ratings
+- Simple apartment information display
 
-- Browse comprehensive apartment listings
-- View detailed apartment information including amenities and photos
-- Star rating system for apartment quality assessment
-- Rich apartment details with descriptions and specifications
-
-### 📅 **Interactive Reservation System**
-
-- Interactive calendar interface for date selection
-- Real-time availability checking
-- Easy date range selection (check-in to check-out)
-- Reservation conflict prevention
+### � **Reservation System**
+- Basic reservation form with guest details
+- Date selection (check-in and check-out dates)
+- Simple booking submission
 
 ### 👥 **Guest Management**
-
-- Guest registration and profile management
-- Secure user authentication system
-- Guest information storage and management
-- Reservation history tracking
+- Guest information collection through forms
+- Basic user authentication
+- Guest data storage
 
 ### 🔧 **Admin Features**
+- Django admin interface for managing data
+- Add, edit, and delete apartments, guests, and reservations
+- Basic administrative oversight
 
-- Django admin interface for property management
-- Apartment, guest, and reservation management
-- User role management and permissions
-- Comprehensive booking oversight
-
-### 🎨 **Modern UI/UX**
-
-- Responsive design for all devices
-- Clean and intuitive user interface
-- Modern styling with custom CSS
-- User-friendly navigation and forms
+### 🎨 **Simple UI**
+- Clean and straightforward user interface
+- Basic HTML templates with CSS styling
+- Simple forms and navigation
 
 ## 🛠️ Built With
 
@@ -115,11 +105,10 @@ The application follows Django's Model-View-Template (MVT) architecture with thr
 ## 📱 Usage
 
 ### For Guests:
-
-1. **Browse Apartments**: View available apartments with photos and details
-2. **Select Dates**: Use the interactive calendar to choose check-in and check-out dates
-3. **Make Reservation**: Fill out the reservation form with your details
-4. **Confirmation**: Receive booking confirmation or error messages
+1. **Browse Apartments**: View available apartments with basic information
+2. **Select Dates**: Enter check-in and check-out dates in the form
+3. **Fill Reservation Form**: Enter your personal details and booking information
+4. **Submit**: Receive confirmation or error messages after form submission
 
 ### For Administrators:
 
