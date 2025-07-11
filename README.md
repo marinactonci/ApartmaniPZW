@@ -6,6 +6,8 @@ A simple web application for apartment browsing and reservation management. This
 
 Apartmani is a basic apartment reservation system built with Django. Guests can browse available apartments, view apartment details, and make reservations by filling out a simple reservation form with their information and desired dates.
 
+![Screenshot of the home page](screenshot.png)
+
 ## ✨ Features
 
 ### 🏠 **Apartment Management**
